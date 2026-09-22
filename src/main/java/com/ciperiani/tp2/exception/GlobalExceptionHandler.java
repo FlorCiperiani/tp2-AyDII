@@ -28,7 +28,6 @@ public class GlobalExceptionHandler {
             if (error instanceof FieldError) {
                 String campo = ((FieldError) error).getField();
                 String objeto = error.getObjectName();
-                // Mantiene exactamente el formato que necesitabas para tu ejercicio
                 errores.add("Elemento/Campo '" + objeto + "." + campo + "': " + mensaje);
             } else {
                 errores.add(mensaje);
@@ -44,7 +43,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(respuesta);
     }
 
-    // Captura errores de validación cuando se usan listas con @Valid o parámetros sueltos (@RequestParam/@PathVariable) en Spring Boot 3.x
+    // Captura errores de validación cuando se usan listas
     @ExceptionHandler(HandlerMethodValidationException.class)
     public ResponseEntity<ApiResponse<List<String>>> manejarHandlerMethodValidation(
             HandlerMethodValidationException ex) {
@@ -66,7 +65,7 @@ public class GlobalExceptionHandler {
                 .body(respuesta);
     }
 
-    // Captura violaciones de restricciones directas (por ejemplo, en @RequestParam)
+    // Captura violaciones de restricciones directas
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<ApiResponse<List<String>>> manejarConstraintViolation(
             ConstraintViolationException ex) {
@@ -107,7 +106,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse<Void>> manejarErrorInterno(
             Exception ex) {
         
-        // Opcional: imprimir el stacktrace en consola para debugear si ocurre otro error inesperado
+        
         ex.printStackTrace();
 
         ApiResponse<Void> respuesta = new ApiResponse<>(

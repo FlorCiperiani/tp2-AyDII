@@ -30,7 +30,7 @@ public class PedidoService {
                 double subtotal = det.getCantidad() * det.getPrecioUnitario().doubleValue();
                 return new DetalleProductoDTO(
                         det.getProducto().getNombre(),
-                        det.getProducto().getCategoria(), // Usamos directamente el String de tu clase Producto
+                        det.getProducto().getCategoria(), 
                         det.getCantidad(),
                         subtotal
                 );

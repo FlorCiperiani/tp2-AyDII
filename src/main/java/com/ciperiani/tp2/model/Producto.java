@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "productos") // Asegúrate de que coincida con el nombre de tu tabla en MySQL
+@Table(name = "productos") 
 public class Producto {
 
     @Id
@@ -15,7 +15,7 @@ public class Producto {
     private Long id;
     
     private String nombre;
-    private String categoria; // O puedes mantenerlo como String según definimos antes
+    private String categoria; 
     private Double precio;
     private Integer stock;
 

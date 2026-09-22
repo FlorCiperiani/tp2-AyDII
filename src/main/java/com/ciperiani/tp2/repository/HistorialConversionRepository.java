@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface HistorialConversionRepository extends JpaRepository<HistorialConversion, Integer> {
     
-    // Busca por origen y destino, ordenado de la más reciente a la más antigua (como pide el TP)
+    // Busca por origen y destino, ordenado de la más reciente a la más antigua
     List<HistorialConversion> findByMonedaOrigenAndMonedaDestinoOrderByFechaConsultaDesc(String monedaOrigen, String monedaDestino);
 }
